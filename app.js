@@ -1,12 +1,12 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 let amigos = []
-let indiceAleatorio = Math.floor(Math.random()*amigos.length)
- let lista = document.getElementById('listaAmigos');
+let lista = document.getElementById('listaAmigos')
+let resultado = document.getElementById('resultado');
 
 function adicionarAmigo(){
     let amigo = document.querySelector('input').value;
 
-    if (amigo == ''){
+    if (amigo === ''){
         alert('Por favor, insira um nome.');
     }else{
         amigos.push(amigo);
@@ -21,8 +21,12 @@ function limparCampo(){
 
 }
 
-function atualizaLista(){
+function limparLista(){
     lista.innerHTML = '';
+}
+
+function atualizaLista(){
+    limparLista()
 
     for (let i = 0; i < amigos.length; i++){
         let item = document.createElement("li");
@@ -31,14 +35,19 @@ function atualizaLista(){
     }
 }
 
+function gerarAmigoSorteado(){
+    let indiceAleatorio = Math.floor(Math.random()*amigos.length)
+    let nomeSorteado = amigos[indiceAleatorio];
+    resultado.innerHTML = `O amigo secreto srorteado é: ${nomeSorteado}`
+}
+
 function sortearAmigo(){
     if (amigos.length!=0){
-        let nomeSorteado = amigos[indiceAleatorio];
-        let resultado = document.getElementById('resultado');
-        resultado.innerHTML = `O amigo secreto srorteado é: ${nomeSorteado}`;
-        lista.innerHTML = ''
+        gerarAmigoSorteado()
+        limparLista()
         amigos = []
     }else{
-         alert('Por favor, faça um novo sorteio!')
+        alert('Por favor, insira um nome.')
+        resultado.innerHTML = ''
     }
 }
