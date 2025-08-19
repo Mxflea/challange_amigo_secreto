@@ -38,7 +38,7 @@ function atualizaLista(){
 function gerarAmigoSorteado(){
     let indiceAleatorio = Math.floor(Math.random()*amigos.length)
     let nomeSorteado = amigos[indiceAleatorio];
-    resultado.innerHTML = `O amigo secreto srorteado é: ${nomeSorteado}`
+    resultado.innerHTML = `O amigo secreto sorteado é: ${nomeSorteado}`
 }
 
 function sortearAmigo(){
